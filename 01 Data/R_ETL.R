@@ -52,3 +52,7 @@ if( length(measures) > 1 || ! is.na(dimensions)) {
   sql <- paste(sql, ");")
   cat(sql)
   
+  #Write data frame to a file
+  df <- data.frame(fromJSON(getURL(URLencode('oraclerest.cs.utexas.edu:5001/rest/native/?query="select * from GASISDATA"'),httpheader=c(DB='jdbc:oracle:thin:@aevum.cs.utexas.edu:1521/f16pdb', USER='cs329e_qmn76', PASS='orcl_qmn76', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE), ))
+  saveRDS(df, '../01 Data/dataframe.rds')
+  
