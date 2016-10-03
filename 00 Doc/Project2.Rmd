@@ -1,0 +1,14 @@
+---
+title: "Project 4 - Mark Metzger & Quynh Nguyen"
+output:
+  pdf_document:
+    toc: yes
+  html_notebook:
+    toc: yes
+  html_document:
+    toc: yes
+---
+
+```{r}
+sessionInfo()
+```
