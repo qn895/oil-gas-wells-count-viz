@@ -16,19 +16,19 @@ subset <- subset(df, SYSNM == 'CRETACEOUS')
 head(subset)
 
 # Describe at least 3 INTERESTING data wrangling sets of operations using %>% in each. There should be a group_by in at least one of them.
-df %>% dplyr::select(AVPOR, AVPERM,FLDNAME) %>% dplyr::filter(FLDNAME == "WEST DELTA BLK 30") %>% tbl_df
+df_new <- df %>% dplyr::select(AVPOR, AVPERM,FLDNAME) %>% dplyr::filter(FLDNAME == "WEST DELTA BLK 30") %>% tbl_df
 
 # Get the resevoir temperation, etc. for data in Texas only
-df %>% dplyr::select(RESTEMP, ERANM,PLAYNAME,SYSNM,STATE) %>% dplyr::filter(STATE == "TEXAS") %>% tbl_df
+df_new2 <- df %>% dplyr::select(RESTEMP, ERANM,PLAYNAME,SYSNM,STATE) %>% dplyr::filter(STATE == "TEXAS") %>% tbl_df
 
 # Arrange the data from lowest avg porosity to highest
-df %>% dplyr::arrange(AVPOR) %>% tbl_df 
+df_new3 <- df %>% dplyr::select(AVPOR, AVPERM) %>% dplyr::arrange(AVPOR)  %>% dplyr::filter(AVPOR > 0 & AVPERM > 0) %>% tbl_df 
 
 # Select columns and display it from highest average permeability to lowest
-df %>% dplyr::select(AVPOR, AVPERM, HIPOR, LOPOR, LOPERM, HIPERM, FLDNAME) %>% dplyr::arrange(desc(AVPERM)) %>% tbl_df # Equivalent SQL:  dplyr::select * from diamonds order by carat;
+df_new4 <- df %>% dplyr::select(AVPOR, AVPERM, HIPOR, LOPOR, LOPERM, HIPERM, FLDNAME) %>% dplyr::arrange(desc(AVPERM)) %>% tbl_df # Equivalent SQL:  dplyr::select * from diamonds order by carat;
 
 # Get a summary of count of rows/data for each fieldname from each state
-df %>% group_by(STATE,FLDNAME) %>% dplyr::summarise(n = n()) %>% dplyr::arrange(desc(n)) %>% tbl_df
+df %>% group_by(STATE,FLDNAME) %>% dplyr::summari`se(n = n()) %>% dplyr::arrange(desc(n)) %>% tbl_df
 
 # Get a summary of count of rows/data for each geologic era
 df %>% group_by(ERANM,SYSNM,SERNM) %>% dplyr::summarise(n = n()) %>% dplyr::arrange(desc(n)) %>% tbl_df
