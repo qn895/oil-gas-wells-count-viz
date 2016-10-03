@@ -19,7 +19,11 @@ source('../03 Visualizations/summary-subset.R')
 
 ## Plot 1 - Permeability vs Porosity
 
-When permeability is plotted against porosity on logspace, we see a clear correlation depsite their being a large spread. Porosity is how much pore space is in the rock. Permeability is how easy fluid flows through a rock. Both are desirable properties for getting oil.
+When permeability is plotted against porosity on logspace, we see a clear correlation depsite their being a large spread. Porosity is how much pore space is in the rock. Permeability is how easy fluid flows through a rock. Both are desirable properties for getting oil. 
+
+As a matter of fact, based on this plot, we can see an almost a linear trend from this plot indicating that higher porosity may correspond to higher permeability. 
+
+The trend makes sense because porosity is significantly affected by the shape (well rounded means better porosity), sorting (the more sorted the higher porosity), and packing (the lesser the better). While permeability is affected by particle size, it also is affected by how the grains are packed. So the trends make sense.
 
 ```{r, message=F, warning=F, code = readLines('../02 DataWrangling/plot1.R')}
 source('../02 DataWrangling/plot1.R')
