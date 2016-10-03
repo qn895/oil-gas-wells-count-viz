@@ -1,0 +1,45 @@
+---
+title: "Oil Reservoir Data"
+author: "Mark and Quynh"
+date: "October 3, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+sessionInfo()
+```
+
+## Data Source
+
+```{r, message=F, warning=F, code = readLines('../03 Visualizations/summary-subset.R')}
+source('../03 Visualizations/summary-subset.R')
+```
+
+
+## Plot 1 - Permeability vs Porosity
+
+When permeability is plotted against porosity on logspace, we see a clear correlation depsite their being a large spread. Porosity is how much pore space is in the rock. Permeability is how easy fluid flows through a rock. Both are desirable properties for getting oil.
+
+```{r, message=F, warning=F, code = readLines('../02 DataWrangling/plot1.R')}
+source('../02 DataWrangling/plot1.R')
+```
+
+
+## Plot 2 - Data Points vs State
+
+We can plot how much data was collected in each state. We see that Texas and Louisiana had the most data collected.
+
+```{r, message=F, warning=F, code = readLines('../02 DataWrangling/plot2.R')}
+source('../02 DataWrangling/plot2.R')
+```
+
+
+
+## Plot 3 - Average Porosity and Permeability vs State
+
+We can get the average reservoir properties in the states. We find that Louisiana, Arkansas, and Mississippi have the most desirable reservoir properties.
+
+```{r, message=F, warning=F, code = readLines('../02 DataWrangling/plot3.R')}
+source('../02 DataWrangling/plot3.R')
+```
